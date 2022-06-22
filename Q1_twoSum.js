@@ -29,3 +29,35 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
     }
     return number;
 };
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+ var twoSumHash = function(nums, target) {
+    var number = [0,0];
+    const hm = new Map(); //initial hash map
+    for(let i=0;i<nums.length;i++){
+        hm.set(nums[i],i);  //key : value
+    }
+    for(let i=0;i<nums.length;i++){
+        var diff = target - nums[i]; //calculate difference
+            if((hm.has(diff))&&(hm.get(diff)!=i)){
+               number[0] = i;
+               number[1] = hm.get(diff);
+               break;
+             }
+        } 
+    
+    return number;
+};
+
+//map functions
+const jsMap = new Map();
+jsMap.set("key","value");
+jsMap.get("key");
+jsMap.set("key","another value");
+jsMap.size;
+jsMap.delete("key");
