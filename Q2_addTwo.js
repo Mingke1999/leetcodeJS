@@ -67,14 +67,14 @@
       current = current.next; //record next digit
     }
 
-    while(l1!=null){
-      total = l1.val + flag;
+    while(l1!=null){  //l2 runout but l1 not
+      total = l1.val + flag;  //continue carry
       current.next = new ListNode(total%10);
-      flag = parseInt(total/10);
+      flag = parseInt(total/10);  //14/10 ->1.4 in javascript
       l1 = l1.next;
-      current = current.next;
+      current = current.next; //maybe need one on position
     }
-    while(l2!=null){
+    while(l2!=null){  //l2 not runout yet
       total = l2.val + flag;
       current.next = new ListNode(total%10);
       flag = parseInt(total/10);
